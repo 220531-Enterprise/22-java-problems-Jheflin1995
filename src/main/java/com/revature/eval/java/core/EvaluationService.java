@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -21,8 +22,13 @@ public class EvaluationService {
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+
+		if(kilometersPerHour<0) {
+			return -1;
+		}else {
+			long mph = Math.round(kilometersPerHour / 1.69);
+			return mph;
+		}
 		}
 
 		/**
@@ -41,8 +47,15 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
+		
+
+			if(kilometersPerHour<0) {
+				return "Invalid Value";
+			}else {
+				long mph = Math.round(kilometersPerHour / 1.69);
+				return kilometersPerHour + " km/h = " + mph + " mi/h";
+			}
+			
 		}
 	}
 
@@ -67,8 +80,24 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		if(XX > 0) {
+		
+		int YY = XX / 1024;
+		
+		int ZZ = XX % 1024;
+		
+		return (XX + " KB = " + YY + " MB and " + ZZ + " KB" );
+		
+		
+
+		}else {
+			
+	
+			
+			return "Invalid Value";
+		}
+		
 	}
 
 	/**
@@ -91,9 +120,16 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
-		return false;
-	}
+		if (hourOfDay < 0 || hourOfDay > 23) {
+			return false;
+		}if(isBarking = true && (hourOfDay<8 && hourOfDay>-1)){
+			return true;
+		}if(isBarking = true && (hourOfDay>22 && hourOfDay<24)) {
+			return true;
+		}else {
+			return false;
+}
+}
 
 	/**
 	 * 4. DecimalComparator
@@ -107,10 +143,24 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
-	}
+		
+		
+		int x = (int)(firstNum * 1000);
+		
+		int y = (int)(secondNum * 1000);
 
+		if(x == y) {
+			
+		return true;
+			
+		}else {
+		
+		return false;
+	
+		}
+		
+
+	}
 	/**
 	 * 5. Teen Number Checker
 	 * 
@@ -124,8 +174,17 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
-			return false;
+			
+			if((x>12 && x <20) || (y>12 && y<20) || (z>12 && z<20) ) {
+				
+				return true;
+				
+			}else {
+				
+				return false;
+				
+			}
+			
 		}
 
 		// We can initialize isTeen method first
