@@ -122,9 +122,9 @@ public class EvaluationService {
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		if (hourOfDay < 0 || hourOfDay > 23) {
 			return false;
-		}if(isBarking = true && (hourOfDay<8 && hourOfDay>-1)){
+		}if(isBarking && (hourOfDay<8 && hourOfDay>-1)){
 			return true;
-		}if(isBarking = true && (hourOfDay>22 && hourOfDay<24)) {
+		}if(isBarking && (hourOfDay>22 && hourOfDay<24)) {
 			return true;
 		}else {
 			return false;
@@ -212,8 +212,21 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if(minutes>0) {
+			
+			long days = minutes / 1440;
+			
+			int YY = (int)Math.floor(days/365);
+			
+			int ZZ = (int)Math.floor(days % 365);
+			
+			return minutes + " min = " + YY + " y and " + ZZ + " d";
+				
+			}else {
+			
+			return "Invalid Value";
+			
+				}
 	}
 
 	/**
@@ -226,8 +239,32 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if(number == 0) {
+			
+			return "ZERO";
+			
+		}else if(number==1) {
+			return "ONE";
+		}else if(number==2) {
+			return "TWO";
+		}else if(number==3) {
+			return "THREE";
+		}else if(number==4) {
+			return "FOUR";
+		}else if(number==5) {
+			return "FIVE";
+		}else if(number==6) {
+			return "SIX";
+		}else if(number==7) {
+			return "SEVEN";
+		}else if(number==8) {
+			return "EIGHT";
+		}else if(number==9) {
+			return "NINE";
+		}else {
+			return"OTHER";
+		}
+	
 	}
 
 	/**
@@ -250,8 +287,21 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		int gcd = 0;
+		
+		if (first<10 || second <10) {
+			return -1;
+		}if(first>10 && second >10) {
+			
+			for(int i = 1; i <= first && i <= second; i++) {
+				
+				if(first%i==0 && second%i==0)
+	                gcd = i;
+			}
+			
+		}
+		return gcd;
 	}
 
 	/**
@@ -268,8 +318,34 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+
+		int first_num = 0;
+		int second_num = 0;
+
+		if(num<0) {
+			
+			return -1;
+			
+		}else if (num < 10) {
+
+			first_num = num;
+			second_num = num;
+
+			return first_num + second_num;
+
+		} else if (num >= 10) {
+
+			first_num = num;
+			while (first_num >= 10) {
+
+				first_num /= 10;
+
+			}
+
+			second_num = num % 10;
+		}
+
+		return first_num + second_num;
 	}
 
 	/**
