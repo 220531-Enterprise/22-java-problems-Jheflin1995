@@ -23,12 +23,12 @@ public class EvaluationService {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
 
-		if(kilometersPerHour<0) {
-			return -1;
-		}else {
-			long mph = Math.round(kilometersPerHour / 1.69);
-			return mph;
-		}
+			if (kilometersPerHour < 0) {
+				return -1;
+			} else {
+				long mph = Math.round(kilometersPerHour / 1.69);
+				return mph;
+			}
 		}
 
 		/**
@@ -47,15 +47,14 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-		
 
-			if(kilometersPerHour<0) {
+			if (kilometersPerHour < 0) {
 				return "Invalid Value";
-			}else {
+			} else {
 				long mph = Math.round(kilometersPerHour / 1.69);
 				return kilometersPerHour + " km/h = " + mph + " mi/h";
 			}
-			
+
 		}
 	}
 
@@ -80,24 +79,20 @@ public class EvaluationService {
 	 * Value".
 	 */
 	public String printMegaBytesAndKiloBytes(int XX) {
-		
-		if(XX > 0) {
-		
-		int YY = XX / 1024;
-		
-		int ZZ = XX % 1024;
-		
-		return (XX + " KB = " + YY + " MB and " + ZZ + " KB" );
-		
-		
 
-		}else {
-			
-	
-			
+		if (XX > 0) {
+
+			int YY = XX / 1024;
+
+			int ZZ = XX % 1024;
+
+			return (XX + " KB = " + YY + " MB and " + ZZ + " KB");
+
+		} else {
+
 			return "Invalid Value";
 		}
-		
+
 	}
 
 	/**
@@ -122,14 +117,16 @@ public class EvaluationService {
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		if (hourOfDay < 0 || hourOfDay > 23) {
 			return false;
-		}if(isBarking && (hourOfDay<8 && hourOfDay>-1)){
+		}
+		if (isBarking && (hourOfDay < 8 && hourOfDay > -1)) {
 			return true;
-		}if(isBarking && (hourOfDay>22 && hourOfDay<24)) {
+		}
+		if (isBarking && (hourOfDay > 22 && hourOfDay < 24)) {
 			return true;
-		}else {
+		} else {
 			return false;
-}
-}
+		}
+	}
 
 	/**
 	 * 4. DecimalComparator
@@ -143,24 +140,23 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		
-		
-		int x = (int)(firstNum * 1000);
-		
-		int y = (int)(secondNum * 1000);
 
-		if(x == y) {
-			
-		return true;
-			
-		}else {
-		
-		return false;
-	
+		int x = (int) (firstNum * 1000);
+
+		int y = (int) (secondNum * 1000);
+
+		if (x == y) {
+
+			return true;
+
+		} else {
+
+			return false;
+
 		}
-		
 
 	}
+
 	/**
 	 * 5. Teen Number Checker
 	 * 
@@ -174,17 +170,17 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			
-			if((x>12 && x <20) || (y>12 && y<20) || (z>12 && z<20) ) {
-				
+
+			if ((x > 12 && x < 20) || (y > 12 && y < 20) || (z > 12 && z < 20)) {
+
 				return true;
-				
-			}else {
-				
+
+			} else {
+
 				return false;
-				
+
 			}
-			
+
 		}
 
 		// We can initialize isTeen method first
@@ -212,21 +208,21 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		if(minutes>0) {
-			
+		if (minutes > 0) {
+
 			long days = minutes / 1440;
-			
-			int YY = (int)Math.floor(days/365);
-			
-			int ZZ = (int)Math.floor(days % 365);
-			
+
+			int YY = (int) Math.floor(days / 365);
+
+			int ZZ = (int) Math.floor(days % 365);
+
 			return minutes + " min = " + YY + " y and " + ZZ + " d";
-				
-			}else {
-			
+
+		} else {
+
 			return "Invalid Value";
-			
-				}
+
+		}
 	}
 
 	/**
@@ -239,32 +235,32 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		if(number == 0) {
-			
+		if (number == 0) {
+
 			return "ZERO";
-			
-		}else if(number==1) {
+
+		} else if (number == 1) {
 			return "ONE";
-		}else if(number==2) {
+		} else if (number == 2) {
 			return "TWO";
-		}else if(number==3) {
+		} else if (number == 3) {
 			return "THREE";
-		}else if(number==4) {
+		} else if (number == 4) {
 			return "FOUR";
-		}else if(number==5) {
+		} else if (number == 5) {
 			return "FIVE";
-		}else if(number==6) {
+		} else if (number == 6) {
 			return "SIX";
-		}else if(number==7) {
+		} else if (number == 7) {
 			return "SEVEN";
-		}else if(number==8) {
+		} else if (number == 8) {
 			return "EIGHT";
-		}else if(number==9) {
+		} else if (number == 9) {
 			return "NINE";
-		}else {
-			return"OTHER";
+		} else {
+			return "OTHER";
 		}
-	
+
 	}
 
 	/**
@@ -287,19 +283,20 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		
+
 		int gcd = 0;
-		
-		if (first<10 || second <10) {
+
+		if (first < 10 || second < 10) {
 			return -1;
-		}if(first>10 && second >10) {
-			
-			for(int i = 1; i <= first && i <= second; i++) {
-				
-				if(first%i==0 && second%i==0)
-	                gcd = i;
+		}
+		if (first > 10 && second > 10) {
+
+			for (int i = 1; i <= first && i <= second; i++) {
+
+				if (first % i == 0 && second % i == 0)
+					gcd = i;
 			}
-			
+
 		}
 		return gcd;
 	}
@@ -322,11 +319,11 @@ public class EvaluationService {
 		int first_num = 0;
 		int second_num = 0;
 
-		if(num<0) {
-			
+		if (num < 0) {
+
 			return -1;
-			
-		}else if (num < 10) {
+
+		} else if (num < 10) {
 
 			first_num = num;
 			second_num = num;
@@ -355,8 +352,16 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+
+		String answer = "";
+
+		for (int i = string.length() - 1; i > -1; i--) {
+
+			answer = answer + string.charAt(i);
+
+		}
+
+		return answer;
 	}
 
 	/**
@@ -367,8 +372,20 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+
+		String answer = "" + phrase.charAt(0);
+
+		for (int i = 0; i < phrase.length(); i++) {
+
+			char a = phrase.charAt(i);
+
+			if (a == ' ' || a == '-') {
+
+				answer = answer + phrase.charAt(i + 1);
+			}
+
+		}
+		return answer.toUpperCase();
 	}
 
 	/**
@@ -423,18 +440,34 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne == sideTwo && sideTwo == sideThree) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+
+			if (sideOne == sideTwo || sideTwo == sideThree || sideThree == sideOne) {
+
+				return true;
+
+			} else {
+
+				return false;
+
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+
+			if (sideOne != sideTwo || sideTwo != sideThree || sideThree != sideOne) {
+				return true;
+			} else {
+				return false;
+			}
+
 		}
 
 	}
@@ -454,8 +487,54 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+
+		string = string.toUpperCase();
+
+		int score = 0;
+
+		for (int i = 0; i < string.length(); i++) {
+
+			if (string.charAt(i) == 'A' || string.charAt(i) == 'E' || string.charAt(i) == 'I' || string.charAt(i) == 'O'
+					|| string.charAt(i) == 'U' || string.charAt(i) == 'L' || string.charAt(i) == 'N'
+					|| string.charAt(i) == 'R' || string.charAt(i) == 'S' || string.charAt(i) == 'T') {
+
+				score = score + 1;
+
+			}
+			if (string.charAt(i) == 'D' || string.charAt(i) == 'G') {
+
+				score = score + 2;
+
+			}
+			if (string.charAt(i) == 'B' || string.charAt(i) == 'C' || string.charAt(i) == 'M'
+					|| string.charAt(i) == 'P') {
+
+				score = score + 3;
+
+			}
+			if (string.charAt(i) == 'F' || string.charAt(i) == 'H' || string.charAt(i) == 'V' || string.charAt(i) == 'W'
+					|| string.charAt(i) == 'Y') {
+
+				score = score + 4;
+
+			}
+			if (string.charAt(i) == 'K') {
+
+				score = score + 5;
+
+			}
+			if (string.charAt(i) == 'J' || string.charAt(i) == 'X') {
+
+				score = score + 8;
+
+			}
+			if (string.charAt(i) == 'Q' || string.charAt(i) == 'Z') {
+
+				score = score + 10;
+
+			}
+		}
+		return score;
 	}
 
 	/**
@@ -492,7 +571,35 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+
+		String answer = "";
+
+		if (string.charAt(0) == '+') {
+
+			string.substring(2);
+
+		} else if (string.charAt(0) == '1') {
+
+			string.substring(1);
+
+		}
+
+		for (int i = 0; i < string.length(); i++) {
+
+			if (string.charAt(i) == '1' || string.charAt(i) == '2' || string.charAt(i) == '3' || string.charAt(i) == '4'
+					|| string.charAt(i) == '5' || string.charAt(i) == '6' || string.charAt(i) == '7'
+					|| string.charAt(i) == '8' || string.charAt(i) == '9' || string.charAt(i)=='0') {
+
+				answer = answer + string.charAt(i);
+			}
+
+		}
+
+		if (answer.length() != 10) {
+			throw new IllegalArgumentException();
+		} else {
+			return answer;
+		}
 	}
 
 	/**
@@ -573,7 +680,7 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 20. Sum of Multiples 
+	 * 20. Sum of Multiples
 	 * 
 	 * Given a number, find the sum of all the unique multiples of particular
 	 * numbers up to but not including that number.
@@ -586,31 +693,32 @@ public class EvaluationService {
 	public int getSumOfMultiples(int i, int[] set) {
 		return 0;
 	}
-	
+
 	/**
 	 * 21. Three Magic Numbers
 	 * 
-	 * You work at a casino in Las Vegas.  Your job is to program a slot machine to
+	 * You work at a casino in Las Vegas. Your job is to program a slot machine to
 	 * return 3 random numbers using the java.util.Random class.
 	 * 
 	 * Write a method to return an int array of 3 random numbers between 1 - 100.
-	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
+	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random
+	 * class.
 	 */
-	
+
 	public int[] threeLuckyNumbers() {
 		return null;
 	}
-	
+
 	/*
 	 * 22. Easy Guessing Game
 	 * 
-	 * Create a program to generate a number between the given range:
-	 * int x = minimum
-	 * iny y = maximum (inclusive)
+	 * Create a program to generate a number between the given range: int x =
+	 * minimum iny y = maximum (inclusive)
 	 * 
-	 * You must use the Math.random class to generate a random number between x and y.
+	 * You must use the Math.random class to generate a random number between x and
+	 * y.
 	 */
-	
+
 	public int guessingGame(int x, int y) {
 		return 0;
 	}
