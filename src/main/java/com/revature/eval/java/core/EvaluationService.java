@@ -1,6 +1,8 @@
 package com.revature.eval.java.core;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -187,7 +189,7 @@ public class EvaluationService {
 		// Then pass the parameter to hasTeen method
 
 		public static boolean isTeen(int number) {
-			// TODO Write an implementation for this method declaration
+			
 			return false;
 		}
 	}
@@ -611,8 +613,35 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String, Integer> testtt = new HashMap<String, Integer>();
+		
+		
+		String[] stringArray = string.split("\\s|,|\\.|-");
+		
+		int wordCount = 1;
+		
+		for(int i=0; i<stringArray.length; i++) {
+			
+			
+			
+			for(int j = i+1; j<stringArray.length; j++) {
+				
+				if(stringArray[i].equals(stringArray[j])) {
+					wordCount++;
+					stringArray[j]="0";
+					
+				}
+			}
+			if(stringArray[i] != "0" && stringArray[i] != "") {
+			testtt.put(stringArray[i], wordCount);
+			
+			
+			}
+			wordCount =1;
+			
+		}
+		
+		return testtt;
 	}
 
 	/**
@@ -630,7 +659,26 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		
+		ArrayList<Integer> numbers = new ArrayList<>();
+		
+		int keepInput = input;
+		while(keepInput>0) {
+			 
+			numbers.add(keepInput%10);
+			keepInput = keepInput/10;
+			
+		}
+		
+		
+		int testNumber = 0;
+		
+		for(int a : numbers) {
+			
+			testNumber = (int) (testNumber + Math.pow(a, numbers.size()));
+		}
+		
+		return (input==testNumber);
 	}
 
 	/**
@@ -642,8 +690,47 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		ArrayList<Long> primeFactors = new ArrayList<>();
+
+		ArrayList<Long> factors = new ArrayList<>();
+		
+		for(long i = 1; i<l;i++) {
+			
+			if(l%i==0) {
+				
+				factors.add(i);
+	}
+
+}
+		
+
+		
+		for(long a : factors) {
+			
+		boolean isPrime = false;
+		
+		for(int i = 2; i<a; i++) {
+			
+			if(a % i != 0) {
+				
+				 isPrime=true;
+			}else if (a%i == 0) {
+				 isPrime=false;
+				break;
+			}
+			
+			}
+		
+		if(isPrime||a==2) {
+			
+			primeFactors.add(a);
+		}
+		
+		
+		}
+		
+		return primeFactors;
 	}
 
 	/**
