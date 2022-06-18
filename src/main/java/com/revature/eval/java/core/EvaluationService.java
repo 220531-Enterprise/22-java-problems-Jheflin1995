@@ -642,6 +642,7 @@ public class EvaluationService {
 			
 		}
 		
+		testtt.values().remove(null);
 		return testtt;
 	}
 
