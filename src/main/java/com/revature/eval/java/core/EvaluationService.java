@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -691,43 +692,23 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		
-		ArrayList<Long> primeFactors = new ArrayList<>();
-
-		ArrayList<Long> factors = new ArrayList<>();
+		ArrayList<Long> primeFactors = new ArrayList<Long>();
 		
-		for(long i = 1; i<l;i++) {
-			
-			if(l%i==0) {
-				
-				factors.add(i);
-	}
-
-}
-		
-
-		
-		for(long a : factors) {
-			
-		boolean isPrime = false;
-		
-		for(int i = 2; i<a; i++) {
-			
-			if(a % i != 0) {
-				
-				 isPrime=true;
-			}else if (a%i == 0) {
-				 isPrime=false;
-				break;
-			}
-			
-			}
-		
-		if(isPrime||a==2) {
-			
-			primeFactors.add(a);
+		if(l==2) {
+			primeFactors.add(l);
+			return primeFactors;
 		}
 		
+		for(int i = 2; i< l; i++) {
+			
+			while(l%i==0) {
+				primeFactors.add((long) i);
+				l = l/i;
+			}
+		}
 		
+		if(l>2) {
+			primeFactors.add(l);
 		}
 		
 		return primeFactors;
@@ -745,8 +726,32 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	
+		if(k<1) {
+			throw new IllegalArgumentException();
+		}
+		int num = 1;
+		int count =0;
+		int i;
+		
+		while(count<k) {
+			
+			num=num+1;
+			
+			for(i=2; i<num; i++) {
+				
+				if(num%i==0) {
+					break;
+				}
+			}
+			if(i==num) {
+				count=count +1;
+			}
+		}
+		
+		
+		
+		return num;
 	}
 
 	/**
@@ -762,8 +767,33 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		int count[] = new int[26];
+		
+		boolean isPanagram = true;
+		
+		char ch;
+		
+		for(int i = 0; i<string.length(); i++) {
+			
+			ch=string.charAt(i);
+			
+			if (ch == ' ')
+			continue;
+			
+			
+			if(ch>='a' && ch<='z') {
+				count[ch-'a']++;
+			}
+		}
+		
+		for(int i=0; i<count.length;i++) {
+			if(count[i]==0) {
+				isPanagram=false;
+				break;
+			}
+		}
+		
+		return isPanagram;
 	}
 
 	/**
@@ -778,8 +808,38 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
-	}
+		
+		ArrayList<Integer> multiples = new ArrayList<>();
+
+		for (int a : set) {
+
+			for (int b = 1; b < i; b++) {
+
+				if (b % a == 0) {
+
+					multiples.add(b);
+
+						
+					}
+				}
+			}
+		
+		LinkedHashSet<Integer> sums = new LinkedHashSet<Integer>();
+		
+		for(int c = 0; c<multiples.size(); c++) {
+			sums.add(multiples.get(c));
+		}
+		int sum = 0;
+		for( int d : sums) {
+			
+			sum = sum + d;
+		}
+		
+		return sum;
+		}
+		
+
+	
 
 	/**
 	 * 21. Three Magic Numbers
@@ -793,7 +853,15 @@ public class EvaluationService {
 	 */
 
 	public int[] threeLuckyNumbers() {
-		return null;
+		
+		int[] lucky = new int[3];
+		
+		for(int i=0; i<3;i++) {
+			int a = (int) (Math.random()*99)+1;
+			lucky[i]=a;
+			
+		}
+		return lucky;
 	}
 
 	/*
@@ -807,6 +875,6 @@ public class EvaluationService {
 	 */
 
 	public int guessingGame(int x, int y) {
-		return 0;
+		return (int) (Math.random()*((x+1)-y))+y;
 	}
 }
