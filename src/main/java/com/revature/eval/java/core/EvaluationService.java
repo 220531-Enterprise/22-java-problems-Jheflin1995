@@ -617,7 +617,7 @@ public class EvaluationService {
 		Map<String, Integer> testtt = new HashMap<String, Integer>();
 		
 		
-		String[] stringArray = string.split("\\s|,|\\.|-");
+		String[] stringArray = string.split(" |,|-|\n");
 		
 		int wordCount = 1;
 		
