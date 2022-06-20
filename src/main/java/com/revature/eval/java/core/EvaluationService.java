@@ -617,7 +617,7 @@ public class EvaluationService {
 		Map<String, Integer> testtt = new HashMap<String, Integer>();
 		
 		
-		String[] stringArray = string.split(" |,|-|\n");
+		String[] stringArray = string.split(" |,|-|\n|\\n");
 		
 		int wordCount = 1;
 		
@@ -642,7 +642,7 @@ public class EvaluationService {
 			
 		}
 		
-		testtt.values().remove(null);
+		testtt.values().remove("");
 		return testtt;
 	}
 
